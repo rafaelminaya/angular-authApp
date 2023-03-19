@@ -21,7 +21,18 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    /*
+    - useHash: true, : Configuración para indicar que trabaje las rutas con "hash".
+    - Esto agregará un "#" antes de las rutas. Con el fin de ayudar a navegar a las rutas de angular.
+     sin modificar el url del servidor en donde se encuentre. Por ejemplo el archivo dist dentro de una aplicación en NodeJS
+    - Ejemplo: http://localhost:4200/#/auth/login
+    - Por defecto es "false"
+    */
+    RouterModule.forRoot(routes, {
+      useHash: false,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
